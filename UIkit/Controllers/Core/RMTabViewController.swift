@@ -1,12 +1,6 @@
-//
-//  ViewController.swift
-//  UIkit
-//
-//  Created by Alexander Suprun on 08.11.2023.
-//
-
 import UIKit
 
+/// Controller to house tabs and root tab controllers
 final class RMTabBarController: UITabBarController {
 
     override func viewDidLoad() {
