@@ -1,29 +1,23 @@
-//
-//  RMCharacterViewController.swift
-//  UIkit
-//
-//  Created by Alexander Suprun on 08.11.2023.
-//
-
 import UIKit
 
 /// Controller to show and search for Chatacter
 final class RMCharacterViewController: UIViewController {
-
+    
+    private let сharacterListView = RMCharacterListView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         title = "Characters"
-        
-        
-        let request = RMRequest(
-            endpoint: .character
-        )
-        print(request.url)
-        
-        RMService.shared.execute(request, expecting: RMCharacter.self) { result in
-            
-        }
+        setUpView()
+    }
+    private func setUpView() {
+        view.addSubview(сharacterListView)
+        NSLayoutConstraint.activate([
+            сharacterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            сharacterListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            сharacterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            сharacterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
     }
 }
